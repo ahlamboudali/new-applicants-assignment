@@ -11,6 +11,7 @@ function remove() {
 
 function display(val) {
     let displayValue = document.getElementById('display').value;
+    // the following logic prevent the user from entering multiple operations after each other
     if (
         val === '+' ||
         val === '-' ||
@@ -44,11 +45,9 @@ function display(val) {
 function calculate() {
     let displayValue = document.getElementById('display').value;
     if (displayValue === '') {
-        return;
+        return; // if we have nothing to calculate we exit this method 
     }
-    console.log(displayValue);
     displayValue = displayValue.replaceAll('%', '*0.01');
-    console.log(displayValue);
     let result = eval(displayValue);
     document.getElementById('display').value = result;
 }
